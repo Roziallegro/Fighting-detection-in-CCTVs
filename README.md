@@ -24,7 +24,7 @@ cd Fighting-detection-in-CCTVs
 ### Python Environment Setup
 1. Install requriements
 ```shell
-    pip install requirement.txt
+    pip install -r "requirement.txt"
 ```
 2. Proceed to `inference.ipynb`
 
