@@ -9,7 +9,7 @@ Results:
 |      | Vanilla LSTM | Xception + LSTM | MobileNet | ResNet with yolov7 | ResNet without yolov7 |
 |:---: | :----------: | :-------------: | :-------: | :----------------: | :-------------------: |
 | Accuracy on unseen datasets (%) | 0.43 | (training is too large to continue) | 0.60 | - | - |
-| F1 score | - | - | 0.69 | - | - |
+| F1 score | 0.61 | - | 0.69 | - | - |
 
 *F1 score is normally used for imbalanced datasets, of which we ensured that our dataset is balanced between fighting and non-fighting
 
@@ -19,6 +19,13 @@ Results:
 git clone https://github.com/Roziallegro/Fighting-detection-in-CCTVs.git
 
 cd Fighting-detection-in-CCTVs
+
+# Install Git LFS
+git lfs install
+
+# Fetch LFS files
+git lfs pull
+
 ```
 
 ### Pre-requitites
