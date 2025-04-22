@@ -5,15 +5,22 @@ Exploring the relevance of LSTM and CNNs for detecting fighting in CCTV footages
 
 *[show results here]*
 
-Results:  
+Results on unseen datasets:  
 |      | Vanilla LSTM | Xception + LSTM | MobileNet | ResNet with yolov7 | ResNet without yolov7 |
 |:---: | :----------: | :-------------: | :-------: | :----------------: | :-------------------: |
-| Accuracy on unseen datasets (%) | 0.43 | (training is too large to continue) | 0.60 | 0.78 | - |
-| F1 score | 0.61 | - | 0.69 | 0.77 | - |
+| Accuracy on unseen datasets (%) | 0.43 | (training is too large to continue) | 0.60 | 0.78 | 0.76 |
+| F1 score | 0.61 | - | 0.69 | 0.77 | 0.77 |
 
 *F1 score is normally used for imbalanced datasets, of which we ensured that our dataset is balanced between fighting and non-fighting
 
 ## Installation
+
+### Pre-requitites
+- Git and Git LFS
+- CUDA toolkit
+- Python
+- **GPU must be able to handle at least 3261 MiB of processing for ResNet and more than 23040 MiB for Xception + LSTM**
+
 ### Download code
 ```shell
 git clone https://github.com/Roziallegro/Fighting-detection-in-CCTVs.git
@@ -27,11 +34,6 @@ git lfs install
 git lfs pull
 
 ```
-
-### Pre-requitites
-- Git and Git LFS
-- CUDA toolkit
-- Python
 
 ## Python Environment Setup for Training
 1. Install requriements.
@@ -47,7 +49,7 @@ git lfs pull
 - If custom dataset is used, you can name violent datasets as `V_xxx.mp4` or `fixxx.mp4`. Meanwhile, non-violent datasets are named as `NV_xxx.mp4` or `nofixxx.mp4`.
 - Preferably, each video is within 2 seconds long for training.
 
-5. Update `video_folder = "../fight-detection-4"` to the correct file directory.
+5. Update `video_folder = "../fight-detection-4"` to the correct file directory & change the weights accordingly based on desired directory for every `torch.load()`.
 
 6. Run the code cells sequentially and read through comments for further information.
 
@@ -78,4 +80,6 @@ Fighting-detection-in-CCTVs
 └── mobilenet_weights_with_yolov7.pth
 ```
 
-3. Set-up gradio for user interface.
+4. Change the weights accordingly based on desired directory for every `torch.load()`.
+
+5. Set-up gradio for user interface.
